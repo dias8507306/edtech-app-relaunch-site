@@ -1,0 +1,50 @@
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a class="f-logo" href="{{logo.href}}" {{&logo.attr}} data-local-index aria-label="{{nav.home}}"><img src="{{base}}lp/eduapp-logo.svg" alt="EduApp App" width="185" height="48" loading="lazy"></a>
+        <p class="f-org">ТОО «EduApp Demo»</p>
+        <address>
+          <span>{{f.addr}}</span>
+          <!-- TODO: реальный номер компании (+ добавить "telephone" в JSON-LD в build.mjs) -->
+          <span>{{f.phone}}: <a href="tel:+70000000000">+7 (000) 000-00-00</a></span>
+        </address>
+      </div>
+      <nav class="f-col" aria-label="{{f.progLabel}}">
+        <p class="f-h">{{f.progLabel}}</p>
+        <a href="{{path.home}}#programs" data-local-index>{{f.l1}}</a>
+        <a href="{{path.home}}#programs" data-local-index>{{f.l2}}</a>
+        <a href="{{path.home}}#programs" data-local-index>{{f.l3}}</a>
+        <a href="https://eduapp.example.com/altyn-saqa">{{f.l4}}</a>
+        <a href="{{path.home}}#programs" data-local-index>{{f.l5}}</a>
+        <a href="{{path.home}}#programs" data-local-index>{{f.l6}}</a>
+      </nav>
+      <nav class="f-col" aria-label="EduApp">
+        <p class="f-h">EduApp</p>
+        <a href="{{path.tests}}" data-local-index>{{nav.tests}}</a>
+        <a href="{{path.home}}#platform" data-local-index>{{f.m1}}</a>
+        <a href="https://eduapp.example.com/challenges">{{nav.challenges}}</a>
+        <a href="https://eduapp.example.com/star-challenge">Star Challenge</a>
+        <a href="{{path.home}}#reviews" data-local-index>{{nav.reviews}}</a>
+        <a href="{{path.home}}#faq" data-local-index>{{faq.h2}}</a>
+      </nav>
+      <div class="f-social">
+        <p class="f-h">{{f.social}}</p>
+        <div class="socials">
+          <a href="https://wa.me/77000000000" target="_blank" rel="noopener" aria-label="EduApp WhatsApp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></a>
+          <a href="https://www.instagram.com/eduapp_demo/" target="_blank" rel="noopener" aria-label="EduApp Instagram"><img src="{{base}}lp/instagram.svg" alt="" width="28" height="28" loading="lazy"></a>
+          <a href="https://www.tiktok.com/@eduapp_demo" target="_blank" rel="noopener" aria-label="EduApp TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          <a href="https://t.me/eduapp_demo_bot" target="_blank" rel="noopener" aria-label="EduApp Telegram"><svg aria-hidden="true"><use href="#i-telegram"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <ul class="f-legal">
+      <li>© <span data-year>2026</span> ТОО «EduApp Demo»</li>
+      <!-- TODO: страница публичной оферты -->
+      <li><a href="#">{{f.offer}}</a></li>
+      <li><a href="https://eduapp.example.com/privacy-and-policy">{{f.privacy}}</a></li>
+      <li><a href="https://eduapp.example.com/terms-and-conditions">{{f.terms}}</a></li>
+    </ul>
+  </div>
+</footer>

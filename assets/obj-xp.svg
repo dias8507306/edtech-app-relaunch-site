@@ -1,0 +1,26 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- XP кристалы — платформаның өз иконкасы (eduapp.example.com, diamond), күлгін нұсқасы #8C76FF -->
+<path d="M4.44444 2.23838L0 7.63796L4.44444 9.31369L7.03704 2.98315L4.44444 2.23838Z" fill="#8C76FF"/>
+<path d="M7.03704 2.98315L4.44444 9.31369H15.5556L12.963 2.98315H7.03704Z" fill="#8C76FF"/>
+<path d="M4.44444 9.31369L10 18.8095L15.5556 9.31369H4.44444Z" fill="#8C76FF"/>
+<path d="M0 7.63796L10 18.8095L4.44444 9.31369L0 7.63796Z" fill="#8C76FF"/>
+<path d="M10 18.8095L20 7.63796L15.5556 9.31369L10 18.8095Z" fill="#8C76FF"/>
+<path d="M20 7.63796L15.5556 2.23838L12.963 2.98315L15.5556 9.31369L20 7.63796Z" fill="#8C76FF"/>
+<path d="M4.44444 2.23838L7.03704 2.98315H12.963L15.5556 2.23838L10 1.66666L4.44444 2.23838Z" fill="#8C76FF"/>
+<path d="M4.44444 2.23838L0 7.63796L4.44444 9.31369L7.03704 2.98315L4.44444 2.23838Z" fill="url(#p0)" style="mix-blend-mode:soft-light"/>
+<path d="M7.03704 2.98315L4.44444 9.31369H15.5556L12.963 2.98315H7.03704Z" fill="url(#p1)" style="mix-blend-mode:plus-lighter"/>
+<path d="M4.44444 9.31369L10 18.8095L15.5556 9.31369H4.44444Z" fill="url(#p2)" style="mix-blend-mode:overlay"/>
+<path d="M0 7.63796L10 18.8095L4.44444 9.31369L0 7.63796Z" fill="url(#p3)" style="mix-blend-mode:soft-light"/>
+<path d="M10 18.8095L20 7.63796L15.5556 9.31369L10 18.8095Z" fill="url(#p4)" style="mix-blend-mode:overlay"/>
+<path d="M20 7.63796L15.5556 2.23838L12.963 2.98315L15.5556 9.31369L20 7.63796Z" fill="url(#p5)" style="mix-blend-mode:soft-light"/>
+<path d="M4.44444 2.23838L7.03704 2.98315H12.963L15.5556 2.23838L10 1.66666L4.44444 2.23838Z" fill="url(#p6)" style="mix-blend-mode:soft-light"/>
+<defs>
+<linearGradient id="p0" x1="7" y1="2.97758" x2="4.3718" y2="9.2311" gradientUnits="userSpaceOnUse"><stop stop-color="#494949"/><stop offset="1" stop-color="#E9E9E9"/></linearGradient>
+<linearGradient id="p1" x1="10" y1="2.78467" x2="10" y2="9.30641" gradientUnits="userSpaceOnUse"><stop stop-color="white" stop-opacity="0.8"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+<linearGradient id="p2" x1="10" y1="9.30641" x2="10" y2="18.8095" gradientUnits="userSpaceOnUse"><stop stop-color="#4C4C4C"/><stop offset="1" stop-color="#B8B8B8"/></linearGradient>
+<linearGradient id="p3" x1="4.44444" y1="9.30641" x2="10.0513" y2="18.7792" gradientUnits="userSpaceOnUse"><stop stop-color="#565656"/><stop offset="1" stop-color="#FAFAFA"/></linearGradient>
+<linearGradient id="p4" x1="15.7368" y1="9.38094" x2="9.95943" y2="18.7846" gradientUnits="userSpaceOnUse"><stop stop-color="#323232"/><stop offset="1" stop-color="#9A9A9A"/></linearGradient>
+<linearGradient id="p5" x1="12.7778" y1="2.59833" x2="15.585" y2="9.29406" gradientUnits="userSpaceOnUse"><stop stop-color="#494949"/><stop offset="1" stop-color="#999999"/></linearGradient>
+<linearGradient id="p6" x1="10" y1="1.86599" x2="10" y2="2.971" gradientUnits="userSpaceOnUse"><stop stop-color="#7C7C7C"/><stop offset="1" stop-color="white"/></linearGradient>
+</defs>
+</svg>

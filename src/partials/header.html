@@ -1,0 +1,82 @@
+<a class="skip" href="#main">{{skip}}</a>
+
+<!-- ============ HEADER (общая для всех страниц) ============
+     path.home — путь к главной ("" на главной, "../" на других страницах), path.tests — путь к странице тестов -->
+<header class="hdr" data-hdr>
+  <div class="hdr-in">
+    <a class="hdr-logo" href="{{logo.href}}" {{&logo.attr}} data-local-index aria-label="{{nav.home}}">
+      <img src="{{base}}lp/eduapp-logo.svg" alt="EduApp App" width="185" height="48">
+    </a>
+    <nav class="hdr-nav" aria-label="{{nav.label}}">
+      <ul>
+        <!-- «Тесттер»: выпадающее меню как на eduapp.example.com — казахские и русские классы -->
+        <li class="has-dd">
+          <a class="dd-link" href="{{path.tests}}" data-local-index aria-haspopup="true"><span>{{nav.tests}}</span><svg class="i dd-chev" aria-hidden="true"><use href="#i-chev"/></svg></a>
+          <div class="dd">
+            <div class="dd-col">
+              <p class="dd-h">{{nav.testsKk}}</p>
+              <a href="{{path.tests}}#kk/ubt" data-local-index>{{pk.ubt}}</a>
+              <a href="{{path.tests}}#kk/nis" data-local-index>{{pk.nis}}</a>
+              <a href="{{path.tests}}#kk/bil" data-local-index>{{pk.bil}}</a>
+              <a href="{{path.tests}}#kk/rfmm" data-local-index>{{pk.rfmm}}</a>
+              <a href="{{path.tests}}#kk/grades" data-local-index>{{pk.grades}}</a>
+            </div>
+            <div class="dd-col">
+              <p class="dd-h">{{nav.testsRu}}</p>
+              <a href="{{path.tests}}#ru/ubt" data-local-index>{{pk.ubt}}</a>
+              <a href="{{path.tests}}#ru/nis" data-local-index>{{pk.nis}}</a>
+              <a href="{{path.tests}}#ru/bil" data-local-index>{{pk.bil}}</a>
+              <a href="{{path.tests}}#ru/rfmm" data-local-index>{{pk.rfmm}}</a>
+              <a href="{{path.tests}}#ru/grades" data-local-index>{{pk.grades}}</a>
+            </div>
+            <a class="dd-all" href="{{path.tests}}" data-local-index><span>{{nav.allTests}}</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        <li><a href="{{path.home}}#programs" data-local-index>{{nav.programs}}</a></li>
+        <li><a href="{{path.home}}#gamification" data-local-index>{{nav.game}}</a></li>
+        <li><a href="{{path.home}}#challenges" data-local-index>{{nav.challenges}}</a></li>
+        <li><a href="{{path.home}}#platform" data-local-index>{{nav.platform}}</a></li>
+        <li><a href="{{path.home}}#reviews" data-local-index>{{nav.reviews}}</a></li>
+        <li><a href="https://eduapp.example.com/altyn-saqa">{{nav.saqa}}</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-act">
+      <!-- Переключатель языка: ссылки на версии страницы для поисковиков, но клик меняет язык сразу, без перезагрузки (site.js) -->
+      <div class="lang-tg" role="group" aria-label="{{lang.group}}">
+        <a class="lang-opt" href="{{href.kk}}" hreflang="kk" lang="kk" data-lang="kk" data-local-index aria-label="Қазақша">ҚАЗ</a>
+        <a class="lang-opt" href="{{href.ru}}" hreflang="ru" lang="ru" data-lang="ru" data-local-index aria-label="Русский">РУС</a>
+      </div>
+      <a class="btn btn-outline btn-sm hide-sm" href="https://eduapp.example.com/login">{{nav.login}}</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="{{nav.menu}}"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" inert>
+  <nav aria-label="{{nav.label}}">
+    <a class="drawer-tests" href="{{path.tests}}" data-local-index>{{nav.tests}}</a>
+    <div class="drawer-sub">
+      <a href="{{path.tests}}#kk/ubt" data-local-index>{{pk.ubt}}</a>
+      <a href="{{path.tests}}#kk/nis" data-local-index>{{pk.nis}}</a>
+      <a href="{{path.tests}}#kk/bil" data-local-index>{{pk.bil}}</a>
+      <a href="{{path.tests}}#kk/rfmm" data-local-index>{{pk.rfmm}}</a>
+      <a href="{{path.tests}}#kk/grades" data-local-index>{{pk.grades}}</a>
+    </div>
+    <a href="{{path.home}}#programs" data-local-index>{{nav.programs}}</a>
+    <a href="{{path.home}}#gamification" data-local-index>{{nav.game}}</a>
+    <a href="{{path.home}}#challenges" data-local-index>{{nav.challenges}}</a>
+    <a href="{{path.home}}#platform" data-local-index>{{nav.platform}}</a>
+    <a href="{{path.home}}#reviews" data-local-index>{{nav.reviews}}</a>
+    <a href="https://eduapp.example.com/altyn-saqa">{{nav.saqa}}</a>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-gold btn-block" href="https://eduapp.example.com/register" data-trial>{{cta.main}}</a>
+    <div class="drawer-row">
+      <a class="btn btn-outline" href="https://eduapp.example.com/login">{{nav.login}}</a>
+      <div class="lang-tg lang-tg-lg" role="group" aria-label="{{lang.group}}">
+        <a class="lang-opt" href="{{href.kk}}" hreflang="kk" lang="kk" data-lang="kk" data-local-index aria-label="Қазақша">ҚАЗ</a>
+        <a class="lang-opt" href="{{href.ru}}" hreflang="ru" lang="ru" data-lang="ru" data-local-index aria-label="Русский">РУС</a>
+      </div>
+    </div>
+  </div>
+</div>

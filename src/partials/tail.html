@@ -1,0 +1,25 @@
+<div class="sticky-cta" data-sticky-cta>
+  <a class="btn btn-gold btn-block" href="https://eduapp.example.com/register" data-trial>{{cta.main}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</div>
+
+<!-- Кнопка «Жоғарыға / Наверх»: стеклянная pill-кнопка с неоновой рамкой. Появляется после 300px прокрутки,
+     кольцо вокруг стрелки показывает, сколько страницы пройдено (0–100%, обновляет site.js) -->
+<button class="totop" type="button" data-totop aria-label="{{nav.top}}" tabindex="-1">
+  <span class="totop-ico">
+    <svg viewBox="0 0 44 44" class="totop-ring" aria-hidden="true">
+      <defs><linearGradient id="totop-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".55" stop-color="#8B5CF6"/><stop offset="1" stop-color="#F4CD4B"/></linearGradient></defs>
+      <circle class="totop-track" cx="22" cy="22" r="19"/>
+      <circle class="totop-val" cx="22" cy="22" r="19" pathLength="100"/>
+    </svg>
+    <svg class="i totop-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+  </span>
+  <span class="totop-t">{{nav.top}}</span>
+</button>
+
+<!-- Окно «Тегін сынақ тест» (наполняет trial.js) -->
+<div class="trial" id="trial" role="dialog" aria-modal="true" aria-labelledby="trial-title" hidden></div>
+
+<script src="{{base}}lp/i18n.js" defer></script>
+<script src="{{base}}lp/fx.js" defer></script>
+<script src="{{base}}lp/site.js" defer></script>
+<script src="{{base}}lp/trial.js" defer></script>

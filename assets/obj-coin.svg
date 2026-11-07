@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="384" viewBox="0 0 384 384">
+  <defs><radialGradient id="c" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".45" stop-color="#F6C443"/><stop offset="1" stop-color="#C98A12"/></radialGradient></defs>
+  <circle cx="192" cy="200" r="160" fill="#A86A0A"/>
+  <circle cx="192" cy="184" r="160" fill="url(#c)"/>
+  <circle cx="192" cy="184" r="122" fill="none" stroke="#FFF7D1" stroke-width="10" opacity=".7"/>
+  <text x="192" y="222" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="110" font-weight="800" fill="#9A5B05">EC</text>
+</svg>

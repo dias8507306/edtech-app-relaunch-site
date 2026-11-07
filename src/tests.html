@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="{{lang}}" data-base="{{base.root}}" data-page="tests/" data-meta="tests.meta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{tests.meta.title}}</title>
+<meta name="description" content="{{tests.meta.desc}}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{url.self}}">
+<link rel="alternate" hreflang="kk-KZ" href="https://eduapp.example.com/tests/">
+<link rel="alternate" hreflang="ru-KZ" href="https://eduapp.example.com/ru/tests/">
+<link rel="alternate" hreflang="x-default" href="https://eduapp.example.com/tests/">
+<meta name="theme-color" content="#2E0F4C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EduApp">
+<meta property="og:url" content="{{url.self}}">
+<meta property="og:title" content="{{tests.meta.title}}">
+<meta property="og:description" content="{{tests.meta.desc}}">
+<meta property="og:image" content="https://eduapp.example.com/og-image.jpg">
+<meta property="og:locale" content="{{og.locale}}">
+<meta property="og:locale:alternate" content="{{og.altLocale}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{base}}lp/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="{{base}}lp/fx.css">
+<link rel="stylesheet" href="{{base}}lp/site.css">
+<link rel="stylesheet" href="{{base}}lp/trial.css">
+<link rel="stylesheet" href="{{base}}lp/tests.css">
+<script type="application/ld+json">{{&jsonld}}</script>
+</head>
+<body>
+
+{{>sprite}}
+{{>header}}
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="ts-hero fx-galaxy" aria-labelledby="ts-h1">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap ts-hero-in">
+      <nav class="ts-crumbs" aria-label="{{tests.crumbL}}">
+        <a href="{{path.home}}" data-local-index>{{tests.crumbHome}}</a><span aria-hidden="true">›</span><span aria-current="page">{{nav.tests}}</span>
+      </nav>
+      <h1 id="ts-h1">{{&tests.h1}}</h1>
+      <p class="ts-lead">{{tests.lead}}</p>
+      <ul class="ts-stats">
+        <li><b>{{stat.tests}}</b><span>{{tests.statTests}}</span></li>
+        <li><b>{{stat.sections}}</b><span>{{tests.statSections}}</span></li>
+        <li><b>2</b><span>{{tests.statLangs}}</span></li>
+      </ul>
+      <div class="ts-hero-cta">
+        <a class="btn btn-gold btn-lg" href="https://eduapp.example.com/register" data-trial>{{cta.main}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p>{{tests.trialHint}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ КАТАЛОГ (заполняет tests.js; здесь — готовый HTML для поисковиков) ============ -->
+  <section class="section ts-section" aria-label="{{tests.catalogL}}">
+    <div class="wrap">
+      <div class="ts-app" id="tests" data-tests>{{&tests.app}}</div>
+      <p class="ts-note">{{tests.note}}</p>
+    </div>
+  </section>
+</main>
+
+{{>footer}}
+
+{{>tail}}
+<script src="{{base}}lp/tests-data.js" defer></script>
+<script src="{{base}}lp/tests.js" defer></script>
+</body>
+</html>

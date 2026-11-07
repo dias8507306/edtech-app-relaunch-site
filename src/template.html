@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="{{lang}}" data-base="{{base.root}}" data-page="" data-meta="meta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{meta.title}}</title>
+<meta name="description" content="{{meta.desc}}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="{{url.self}}">
+<link rel="alternate" hreflang="kk-KZ" href="https://eduapp.example.com/">
+<link rel="alternate" hreflang="ru-KZ" href="https://eduapp.example.com/ru/">
+<link rel="alternate" hreflang="x-default" href="https://eduapp.example.com/">
+<meta name="theme-color" content="#2E0F4C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EduApp">
+<meta property="og:url" content="{{url.self}}">
+<meta property="og:title" content="{{meta.title}}">
+<meta property="og:description" content="{{meta.desc}}">
+<!-- TODO: положить картинку 1200×630 в корень сайта как /og-image.jpg -->
+<meta property="og:image" content="https://eduapp.example.com/og-image.jpg">
+<meta property="og:locale" content="{{og.locale}}">
+<meta property="og:locale:alternate" content="{{og.altLocale}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="{{base}}lp/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="{{base}}lp/fx.css">
+<link rel="stylesheet" href="{{base}}lp/site.css">
+<link rel="stylesheet" href="{{base}}lp/trial.css">
+<script type="application/ld+json">{{&jsonld}}</script>
+</head>
+<body>
+
+{{>sprite}}
+
+{{>header}}
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero fx-galaxy" aria-labelledby="hero-h1" data-hero>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="beacon beacon-gold" aria-hidden="true"></span>{{hero.eyebrow}}</p>
+        <h1 id="hero-h1">{{&hero.h1}}</h1>
+        <p class="hero-sub">{{hero.sub}}</p>
+        <div class="hero-cta" data-hero-cta>
+          <!-- data-trial: клик открывает окно сынақ теста (trial.js). Без JavaScript ссылка ведёт на регистрацию -->
+          <a class="btn btn-gold btn-lg" href="https://eduapp.example.com/register" data-trial>{{cta.main}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="link-light" href="#programs">{{hero.secondary}}</a>
+        </div>
+        <div class="hero-proof">
+          <span class="ava-stack" aria-hidden="true">
+            <img src="{{base}}lp/rv-3.svg" alt="" width="40" height="40">
+            <img src="{{base}}lp/rv-4.svg" alt="" width="40" height="40">
+            <img src="{{base}}lp/rv-2.svg" alt="" width="40" height="40">
+            <img src="{{base}}lp/rv-1.svg" alt="" width="40" height="40">
+          </span>
+          <p>{{&hero.proof}}</p>
+        </div>
+      </div>
+
+      <!-- «Оқу орбитасы»: путь ученика от диагностики до цели. Узлы — кнопки: наведение даёт 3D-наклон и подсказку с прогрессом.
+           Анимации (мерцание, пульс кольца, бегущий пунктир) встают на паузу вне экрана и во время прокрутки — см. site.js -->
+      <div class="orbit" data-orbit role="group" aria-label="{{map.aria}}">
+        <div class="ob-mesh" aria-hidden="true"></div>
+        <div class="ob-stars" aria-hidden="true">
+          <i style="--x:6%;--y:12%;--s:3px;--d:0s"></i>
+          <i style="--x:18%;--y:34%;--s:2px;--d:1.2s"></i>
+          <i style="--x:9%;--y:62%;--s:2px;--d:2.1s"></i>
+          <i style="--x:30%;--y:8%;--s:2px;--d:0.6s"></i>
+          <i style="--x:41%;--y:44%;--s:3px;--d:1.8s"></i>
+          <i style="--x:52%;--y:6%;--s:2px;--d:2.6s"></i>
+          <i style="--x:64%;--y:30%;--s:2px;--d:0.3s"></i>
+          <i style="--x:74%;--y:58%;--s:3px;--d:1.4s"></i>
+          <i style="--x:88%;--y:40%;--s:2px;--d:2.2s"></i>
+          <i style="--x:93%;--y:72%;--s:3px;--d:0.9s"></i>
+          <i style="--x:80%;--y:90%;--s:2px;--d:1.7s"></i>
+          <i style="--x:58%;--y:94%;--s:2px;--d:0.4s"></i>
+          <i style="--x:36%;--y:74%;--s:2px;--d:2.9s"></i>
+          <i style="--x:22%;--y:96%;--s:3px;--d:1.1s"></i>
+          <i style="--x:47%;--y:64%;--s:2px;--d:3.3s"></i>
+          <i style="--x:70%;--y:12%;--s:3px;--d:2.4s"></i>
+          <i style="--x:96%;--y:18%;--s:2px;--d:1.6s"></i>
+          <i style="--x:3%;--y:86%;--s:2px;--d:0.8s"></i>
+        </div>
+        <svg class="ob-svg" viewBox="0 0 520 500" aria-hidden="true">
+          <defs>
+            <linearGradient id="ob-neon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".5" stop-color="#8B5CF6"/><stop offset="1" stop-color="#F472B6"/></linearGradient>
+            <linearGradient id="ob-neon2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8BFF"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+            <linearGradient id="ob-route-g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#5B8BFF"/><stop offset=".55" stop-color="#C4B5FD"/><stop offset="1" stop-color="#F4CD4B"/></linearGradient>
+            <radialGradient id="ob-comet"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#C4F1FF" stop-opacity=".9"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- неоновые орбиты: широкий полупрозрачный слой = свечение, тонкий = сама линия -->
+          <ellipse cx="260" cy="250" rx="240" ry="205" fill="none" stroke="url(#ob-neon)" stroke-width="12" opacity=".1"/>
+          <ellipse cx="260" cy="250" rx="240" ry="205" fill="none" stroke="url(#ob-neon)" stroke-width="1.6" opacity=".75"/>
+          <ellipse cx="260" cy="250" rx="168" ry="140" fill="none" stroke="url(#ob-neon2)" stroke-width="9" opacity=".08" transform="rotate(-12 260 250)"/>
+          <ellipse cx="260" cy="250" rx="168" ry="140" fill="none" stroke="url(#ob-neon2)" stroke-width="1.2" stroke-dasharray="3 7" opacity=".6" transform="rotate(-12 260 250)"/>
+          <!-- путь между узлами: свечение + бегущий пунктир + комета -->
+          <path d="M90 440 C150 440 205 410 250 385 C320 348 225 300 150 275 C80 252 255 222 330 210 C415 196 300 132 232 112 C170 94 345 58 432 70" fill="none" stroke="url(#ob-route-g)" stroke-width="14" stroke-linecap="round" opacity=".14"/>
+          <path id="ob-route" class="ob-route" d="M90 440 C150 440 205 410 250 385 C320 348 225 300 150 275 C80 252 255 222 330 210 C415 196 300 132 232 112 C170 94 345 58 432 70" fill="none" stroke="url(#ob-route-g)" stroke-width="3.2" stroke-linecap="round"/>
+          <g class="ob-comet">
+            <circle r="16" fill="url(#ob-comet)"/>
+            <circle r="3.6" fill="#fff"/>
+            <animateMotion dur="9s" repeatCount="indefinite" calcMode="linear"><mpath href="#ob-route"/></animateMotion>
+          </g>
+        </svg>
+
+        <!-- Логика пути: планета с заданиями → сундук → из сундука XP и EduCoin → диагностика (проверка подготовки) → цель -->
+        <button class="ob-node ob-gold ob-level" type="button" style="--x:17.3%;--y:88%" aria-describedby="ob-tip-level">
+          <span class="ob-orb ob-obj" style="--s:13;--bd:-.6s"><img class="ob-3d" src="{{base}}lp/obj-planet.webp" alt="" width="384" height="381"></span>
+          <span class="ob-plate ob-plate-r"><img class="ob-pi" src="{{base}}lp/obj-planet.webp" alt="" width="384" height="381"><b>{{map.l3}}</b></span>
+          <span class="ob-tip ob-tip-start" id="ob-tip-level" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{game.s1.t}}</span>
+            <span class="ob-tip-d">{{game.s1.d}}</span>
+            <span class="ob-tip-bar"><i style="--p:17%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 1 / 6</span>
+          </span>
+        </button>
+
+        <button class="ob-node ob-orange" type="button" style="--x:48.1%;--y:77%" aria-describedby="ob-tip-chest">
+          <span class="ob-orb ob-obj" style="--s:14;--bd:-1.4s"><img class="ob-3d" src="{{base}}lp/obj-chest.webp" alt="" width="384" height="262"></span>
+          <span class="ob-plate ob-plate-r"><img class="ob-pi" src="{{base}}lp/obj-chest.webp" alt="" width="384" height="262"><b>{{map.l4}}</b></span>
+          <span class="ob-tip " id="ob-tip-chest" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{game.s2.t}}</span>
+            <span class="ob-tip-d">{{game.s2.d}}</span>
+            <span class="ob-tip-bar"><i style="--p:33%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 2 / 6</span>
+          </span>
+        </button>
+
+        <button class="ob-node ob-gem" type="button" style="--x:28.8%;--y:55%" aria-describedby="ob-tip-xp">
+          <span class="ob-orb ob-obj" style="--s:11;--bd:-2.1s"><img class="ob-3d" src="{{base}}lp/obj-xp.svg" alt="" width="20" height="20"></span>
+          <span class="ob-plate ob-plate-l ob-badge"><img class="ob-pi" src="{{base}}lp/obj-xp.svg" alt="" width="20" height="20"><b>+136</b>{{map.l2}}</span>
+          <span class="ob-tip " id="ob-tip-xp" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{game.s3.t}}</span>
+            <span class="ob-tip-d">{{game.s3.d}}</span>
+            <span class="ob-tip-bar"><i style="--p:50%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 3 / 6</span>
+          </span>
+        </button>
+
+        <button class="ob-node ob-gold ob-coin-node" type="button" style="--x:63.5%;--y:42%" aria-describedby="ob-tip-coin">
+          <span class="ob-orb ob-obj ob-coin" style="--s:11"><img class="ob-3d" src="{{base}}lp/obj-coin.svg" alt="" width="384" height="384"></span>
+          <span class="ob-plate ob-plate-r ob-badge ob-badge-gold"><img class="ob-pi" src="{{base}}lp/obj-coin.svg" alt="" width="384" height="384"><b>+50</b>EduCoin</span>
+          <span class="ob-tip " id="ob-tip-coin" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{game.s4.t}}</span>
+            <span class="ob-tip-d">{{game.s4.d}}</span>
+            <span class="ob-tip-bar"><i style="--p:67%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 4 / 6</span>
+          </span>
+        </button>
+
+        <button class="ob-node ob-red" type="button" style="--x:44.6%;--y:22.4%" aria-describedby="ob-tip-diag">
+          <span class="ob-orb ob-obj" style="--s:11.5;--bd:-.8s"><svg class="ob-3d" viewBox="0 0 120 120" aria-hidden="true"><use href="#o3-target"/></svg></span>
+          <span class="ob-plate ob-plate-l"><svg class="ob-pi" viewBox="0 0 120 120" aria-hidden="true"><use href="#o3-target"/></svg><b>{{map.l1}}</b></span>
+          <span class="ob-tip ob-tip-below" id="ob-tip-diag" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{game.s5.t}}</span>
+            <span class="ob-tip-d">{{game.s5.d}}</span>
+            <span class="ob-tip-bar"><i style="--p:83%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 5 / 6</span>
+          </span>
+        </button>
+
+        <button class="ob-node ob-gold ob-goal" type="button" style="--x:83.1%;--y:14%" aria-describedby="ob-tip-goal">
+          <span class="ob-orb ob-obj" style="--s:15;--bd:-3s"><img class="ob-3d" src="{{base}}lp/obj-trophy.webp" alt="" width="384" height="357"></span>
+          <span class="ob-plate ob-plate-b ob-plate-gold"><img class="ob-pi" src="{{base}}lp/obj-trophy.webp" alt="" width="384" height="357"><b>{{map.l6}}</b></span>
+          <span class="ob-tip ob-tip-below ob-tip-end" id="ob-tip-goal" role="tooltip" aria-hidden="true">
+            <span class="ob-tip-t">{{map.l6}}</span>
+            <span class="ob-tip-d">{{map.goalD}}</span>
+            <span class="ob-tip-bar"><i style="--p:100%"></i></span>
+            <span class="ob-tip-s"><span>{{map.stepL}}</span> 6 / 6</span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Программы: аккуратные карточки вместо «таблеток» -->
+    <div class="wrap programs" id="programs">
+      <h2 class="programs-h">{{programs.h2}}</h2>
+      <!-- TODO: когда появятся посадочные /bil /ubt /ielts /olympiad /bastauysh /linguo — поставить их в href -->
+      <ul class="prog-grid">
+        <li><a class="prog" href="#formats" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.1.t}}</h3><span>{{prog.1.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li><a class="prog" href="#formats" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.2.t}}</h3><span>{{prog.2.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li><a class="prog" href="#formats" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.3.t}}</h3><span>{{prog.3.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li><a class="prog" href="https://eduapp.example.com/altyn-saqa" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-medal"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.4.t}}</h3><span>{{prog.4.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li><a class="prog" href="#formats" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.5.t}}</h3><span>{{prog.5.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li><a class="prog" href="#formats" data-spot>
+          <span class="prog-ico"><svg class="i" aria-hidden="true"><use href="#i-lang"/></svg></span>
+          <span class="prog-txt"><h3>{{prog.6.t}}</h3><span>{{prog.6.d}}</span></span>
+          <svg class="i prog-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats-wrap" aria-label="{{stats.aria}}">
+    <ul class="stats reveal">
+      <li><p class="stat-n"><span data-count="12000">12000</span>+</p><p>{{stats.1}}</p></li>
+      <li><p class="stat-n"><span data-count="350">350</span>+</p><p>{{stats.2}}</p></li>
+      <li><p class="stat-n"><span data-count="8">8</span> <small>{{stats.years}}</small></p><p>{{stats.3}}</p></li>
+      <li><p class="stat-n"><span data-count="170">170</span></p><p>{{stats.4}}</p></li>
+      <li><p class="stat-n"><span data-count="30">30</span>+</p><p>{{stats.5}}</p></li>
+    </ul>
+  </section>
+
+  <!-- ============ GAMIFICATION ============ -->
+  <section class="panel-dark fx-galaxy game" id="gamification" aria-labelledby="game-h">
+    <div class="wrap">
+      <header class="sec-head sec-head-light reveal">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>{{game.kicker}}</p>
+        <h2 id="game-h">{{game.h2}}</h2>
+        <p>{{game.lead}}</p>
+      </header>
+      <ol class="stages">
+        <li class="stage fx-glow reveal" data-tilt="10">
+          <span class="stage-n">01</span>
+          <span class="orb orb-green" data-depth="46"><img class="i i-st i-planet" src="{{base}}lp/obj-planet.webp" alt="" width="384" height="381" loading="lazy"></span>
+          <h3 data-depth="22">{{game.s1.t}}</h3>
+          <p data-depth="12">{{game.s1.d}}</p>
+        </li>
+        <li class="stage fx-glow reveal" data-tilt="10" style="--d:.06s">
+          <span class="stage-n">02</span>
+          <span class="orb orb-amber" data-depth="46"><img class="i i-st i-chest" src="{{base}}lp/obj-chest.webp" alt="" width="384" height="262" loading="lazy"></span>
+          <h3 data-depth="22">{{game.s2.t}}</h3>
+          <p data-depth="12">{{game.s2.d}}</p>
+        </li>
+        <li class="stage fx-glow reveal" data-tilt="10" style="--d:.12s">
+          <span class="stage-n">03</span>
+          <span class="orb orb-violet" data-depth="46"><img class="i i-st i-gem" src="{{base}}lp/obj-xp.svg" alt="" width="20" height="20"></span>
+          <h3 data-depth="22">{{game.s3.t}}</h3>
+          <p data-depth="12">{{game.s3.d}}</p>
+        </li>
+        <li class="stage fx-glow reveal" data-tilt="10" style="--d:.18s">
+          <span class="stage-n">04</span>
+          <span class="orb orb-gold" data-depth="46"><img class="i i-st i-coin3d" src="{{base}}lp/obj-coin.svg" alt="" width="384" height="384" loading="lazy"></span>
+          <h3 data-depth="22">{{game.s4.t}}</h3>
+          <p data-depth="12">{{game.s4.d}}</p>
+        </li>
+        <li class="stage fx-glow reveal" data-tilt="10" style="--d:.24s">
+          <span class="stage-n">05</span>
+          <span class="orb orb-blue" data-depth="46"><svg class="i i-st" viewBox="0 0 120 120" aria-hidden="true"><use href="#o3-target"/></svg></span>
+          <h3 data-depth="22">{{game.s5.t}}</h3>
+          <p data-depth="12">{{game.s5.d}}</p>
+        </li>
+      </ol>
+      <p class="game-foot reveal"><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg><span>{{&game.foot}}</span></p>
+    </div>
+  </section>
+
+  <!-- ============ POPULAR PROGRAMS ============ -->
+  <section class="section" id="popular" aria-labelledby="pop-h">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker">{{pop.kicker}}</p>
+        <h2 id="pop-h">{{pop.h2}}</h2>
+        <p>{{pop.lead}}</p>
+      </header>
+      <!-- TODO: доли ниже — демо. Подставьте реальные цифры из аналитики (атрибут style="--v:N" и data-count). -->
+      <ol class="pop-list">
+        <li class="reveal"><a class="pop-row fx-light" href="#formats" data-spot style="--v:38">
+          <span class="pop-rank">1</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-award"/></svg></span>
+          <span class="pop-main"><h3>{{prog.1.t}}</h3><span>{{pop.1}}</span></span>
+          <span class="seg" role="img" aria-label="38%"><i></i></span>
+          <span class="pop-val"><span data-count="38">38</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li class="reveal" style="--d:.05s"><a class="pop-row fx-light" href="#formats" data-spot style="--v:24">
+          <span class="pop-rank">2</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-cap"/></svg></span>
+          <span class="pop-main"><h3>{{prog.2.t}}</h3><span>{{pop.2}}</span></span>
+          <span class="seg" role="img" aria-label="24%"><i></i></span>
+          <span class="pop-val"><span data-count="24">24</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li class="reveal" style="--d:.1s"><a class="pop-row fx-light" href="https://eduapp.example.com/altyn-saqa" data-spot style="--v:16">
+          <span class="pop-rank">3</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-medal"/></svg></span>
+          <span class="pop-main"><h3>{{prog.4.t}}</h3><span>{{pop.3}}</span></span>
+          <span class="seg" role="img" aria-label="16%"><i></i></span>
+          <span class="pop-val"><span data-count="16">16</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li class="reveal" style="--d:.15s"><a class="pop-row fx-light" href="#formats" data-spot style="--v:10">
+          <span class="pop-rank">4</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <span class="pop-main"><h3>{{prog.3.t}}</h3><span>{{pop.4}}</span></span>
+          <span class="seg" role="img" aria-label="10%"><i></i></span>
+          <span class="pop-val"><span data-count="10">10</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li class="reveal" style="--d:.2s"><a class="pop-row fx-light" href="#formats" data-spot style="--v:8">
+          <span class="pop-rank">5</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span>
+          <span class="pop-main"><h3>{{prog.5.t}}</h3><span>{{pop.5}}</span></span>
+          <span class="seg" role="img" aria-label="8%"><i></i></span>
+          <span class="pop-val"><span data-count="8">8</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+        <li class="reveal" style="--d:.25s"><a class="pop-row fx-light" href="#formats" data-spot style="--v:4">
+          <span class="pop-rank">6</span>
+          <span class="pop-ico"><svg class="i" aria-hidden="true"><use href="#i-lang"/></svg></span>
+          <span class="pop-main"><h3>{{prog.6.t}}</h3><span>{{pop.6}}</span></span>
+          <span class="seg" role="img" aria-label="4%"><i></i></span>
+          <span class="pop-val"><span data-count="4">4</span>%</span>
+          <svg class="i pop-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section class="section section-tint" id="challenges" aria-labelledby="ch-h">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker">{{ch.kicker}}</p>
+        <h2 id="ch-h">{{ch.h2}}</h2>
+        <p>{{ch.lead}}</p>
+      </header>
+      <!-- TODO: статусы и счётчики подтягивать из API челленджей (data-status: open | live | done) -->
+      <div class="ch-grid">
+        <article class="ch-card fx-galaxy fx-glow reveal" data-tilt="7" data-status="open">
+          <div class="ch-top"><span class="status status-open"><span class="beacon" aria-hidden="true"></span>{{ch.st.open}}</span><span class="ch-chip">{{ch.1.chip}}</span></div>
+          <h3 data-depth="20">Star Challenge</h3>
+          <p data-depth="10">{{ch.1.d}}</p>
+          <ul class="ch-meta">
+            <li><svg class="i" aria-hidden="true"><use href="#i-target"/></svg>{{ch.1.m1}}</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>{{ch.1.m2}}</li>
+          </ul>
+          <a class="btn btn-gold" href="https://eduapp.example.com/star-challenge">{{ch.1.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="ch-card fx-galaxy fx-glow reveal" data-tilt="7" data-status="live" style="--d:.08s">
+          <div class="ch-top"><span class="status status-live"><span class="beacon" aria-hidden="true"></span>{{ch.st.live}}</span><span class="ch-chip">{{ch.2.chip}}</span></div>
+          <h3 data-depth="20">«Алтын сақа»</h3>
+          <p data-depth="10">{{ch.2.d}}</p>
+          <ul class="ch-meta">
+            <li><svg class="i" aria-hidden="true"><use href="#i-calendar"/></svg>{{ch.2.m1}}</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>{{ch.2.m2}}</li>
+          </ul>
+          <a class="btn btn-gold" href="https://eduapp.example.com/altyn-saqa">{{ch.2.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="ch-card fx-galaxy fx-glow reveal is-done" data-tilt="7" data-status="done" style="--d:.16s">
+          <div class="ch-top"><span class="status status-done"><span class="beacon" aria-hidden="true"></span>{{ch.st.done}}</span><span class="ch-chip">{{ch.3.chip}}</span></div>
+          <h3 data-depth="20">{{ch.3.t}}</h3>
+          <p data-depth="10">{{ch.3.d}}</p>
+          <ul class="ch-meta">
+            <li><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>{{ch.3.m1}}</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>{{ch.3.m2}}</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://eduapp.example.com/challenges">{{ch.3.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMATS ============ -->
+  <section class="section" id="formats" aria-labelledby="fmt-h">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker">{{fmt.kicker}}</p>
+        <h2 id="fmt-h">{{fmt.h2}}</h2>
+        <p>{{fmt.lead}}</p>
+      </header>
+      <!-- Карточки форматов: градиентная кромка, 3D-подъём, флагман — Self-study -->
+      <div class="fmt-grid">
+        <article class="fmt fmt-offline reveal fx-light" data-spot>
+          <div class="fmt-media">
+            <img src="{{base}}lp/study-offline.png" alt="{{fmt.1.alt}}" width="318" height="200" loading="lazy" decoding="async">
+            <span class="fmt-tag"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>{{fmt.1.tag}}</span>
+          </div>
+          <div class="fmt-body">
+            <h3 class="fmt-title">EduApp Offline</h3>
+            <p class="fmt-sub">{{fmt.1.sub}}</p>
+            <ul class="fmt-list">
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span>{{fmt.1.b1}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span>{{fmt.1.b2}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-zap"/></svg></span>{{fmt.1.b3}}</li>
+            </ul>
+            <a class="fmt-cta" href="https://eduapp.example.com/register">{{fmt.1.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+
+        <article class="fmt fmt-online reveal fx-light" data-spot style="--d:.08s">
+          <div class="fmt-media">
+            <img src="{{base}}lp/study-online.png" alt="{{fmt.2.alt}}" width="318" height="200" loading="lazy" decoding="async">
+            <span class="fmt-tag"><span class="beacon fmt-live" aria-hidden="true"></span>{{fmt.2.tag}}</span>
+          </div>
+          <div class="fmt-body">
+            <h3 class="fmt-title">EduApp Online</h3>
+            <p class="fmt-sub">{{fmt.2.sub}}</p>
+            <ul class="fmt-list">
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span>{{fmt.2.b1}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span>{{fmt.2.b2}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-zap"/></svg></span>{{fmt.2.b3}}</li>
+            </ul>
+            <a class="fmt-cta" href="https://eduapp.example.com/register">{{fmt.2.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+
+        <article class="fmt fmt-flag reveal" data-spot style="--d:.16s">
+          <span class="fmt-bg fx-galaxy" aria-hidden="true"></span>
+          <span class="fmt-badge"><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg>{{fmt.3.badge}}</span>
+          <div class="fmt-media">
+            <img src="{{base}}lp/study-self.png" alt="{{fmt.3.alt}}" width="318" height="200" loading="lazy" decoding="async">
+            <span class="fmt-tag"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>{{fmt.3.tag}}</span>
+          </div>
+          <div class="fmt-body">
+            <h3 class="fmt-title">EduApp Self-study</h3>
+            <p class="fmt-sub">{{fmt.3.sub}}</p>
+            <ul class="fmt-list">
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></span>{{fmt.3.b1}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-zap"/></svg></span>{{fmt.3.b2}}</li>
+              <li><span class="fmt-ico"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span>{{fmt.3.b3}}</li>
+            </ul>
+            <a class="fmt-cta" href="https://eduapp.example.com/register">{{fmt.3.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLATFORM DEMO ============ -->
+  <section class="panel-dark fx-galaxy platform" id="platform" aria-labelledby="pf-h">
+    <div class="wrap">
+      <header class="sec-head sec-head-light reveal">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg>EduApp App</p>
+        <h2 id="pf-h">{{pf.h2}}</h2>
+        <p>{{pf.lead}}</p>
+      </header>
+
+      <!-- Демо повторяет реальный кабинет eduapp.example.com/student: Home, Challenge, Тренинг, Shop -->
+      <div class="app reveal" data-demo>
+        <div class="win-bar" aria-hidden="true">
+          <span class="win-dots"><i></i><i></i><i></i></span>
+          <span class="win-url"><svg class="i"><use href="#i-lock"/></svg><span>eduapp.example.com/student/<b data-demo-url>home</b></span></span>
+          <span class="win-demo">{{demo.chip}}</span>
+        </div>
+        <div class="app-head">
+          <img class="app-logo" src="{{base}}lp/eduapp-logo.svg" alt="" width="797" height="300" loading="lazy">
+          <div class="app-head-r">
+            <span class="app-lang"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg>{{lang.self}}</span>
+            <span class="app-ava">Z</span>
+            <span class="app-uname"><b>{{demo.user}}</b><small>{{demo.grade}}</small></span>
+          </div>
+        </div>
+        <div class="app-body">
+          <aside class="app-side">
+            <div class="app-nav" role="tablist" aria-label="{{demo.nav}}" aria-orientation="vertical">
+              <span class="app-ind" aria-hidden="true"></span>
+              <button type="button" role="tab" id="dt-home" aria-controls="dp-home" aria-selected="true" tabindex="0" data-url="home"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Home</button>
+              <span class="app-sep" aria-hidden="true"></span>
+              <span class="app-cap" aria-hidden="true">{{demo.cab}}</span>
+              <button type="button" role="tab" id="dt-challenges" aria-controls="dp-challenges" aria-selected="false" tabindex="-1" data-url="challenges"><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>Challenge</button>
+              <span class="app-item" aria-hidden="true"><svg class="i"><use href="#i-list"/></svg>{{demo.tests}}</span>
+              <span class="app-item" aria-hidden="true"><svg class="i"><use href="#i-trophy"/></svg>My Challenges</span>
+              <span class="app-item" aria-hidden="true"><svg class="i"><use href="#i-award"/></svg>{{demo.ach}}</span>
+              <span class="app-item" aria-hidden="true"><svg class="i"><use href="#i-receipt"/></svg>{{demo.pay}}</span>
+              <button type="button" role="tab" id="dt-training" aria-controls="dp-training" aria-selected="false" tabindex="-1" data-url="training"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>{{demo.training}}</button>
+              <button type="button" role="tab" id="dt-shop" aria-controls="dp-shop" aria-selected="false" tabindex="-1" data-url="shop/products/home"><svg class="i" aria-hidden="true"><use href="#i-bag"/></svg>Shop</button>
+            </div>
+          </aside>
+
+          <div class="app-main">
+            <!-- Home -->
+            <div class="app-panel" id="dp-home" role="tabpanel" aria-labelledby="dt-home">
+              <div class="ah-grid">
+                <div class="ah-card ah-bonus"><p class="ah-k"><img src="{{base}}lp/obj-xp.svg" alt="" width="20" height="20">{{demo.bonus}}</p><p class="ah-v"><span data-count="1240">1240</span><em>XP</em></p></div>
+                <div class="ah-card ah-bonus"><p class="ah-k"><svg aria-hidden="true"><use href="#i-coin"/></svg>EduCoin</p><p class="ah-v"><span data-count="350">350</span><em>EC</em></p></div>
+                <div class="ah-card ah-ch"><p class="ah-t">{{demo.ch}}</p><svg class="ah-trophy" aria-hidden="true"><use href="#i-trophy-color"/></svg></div>
+                <div class="ah-card ah-ach"><p class="ah-t">{{demo.ach}}</p><span class="ah-medal"><svg aria-hidden="true"><use href="#i-medal-color"/></svg></span></div>
+              </div>
+              <div class="ah-banner">
+                <p>{{demo.banner}}</p>
+                <span class="ah-coins" aria-hidden="true"><span><svg><use href="#i-coin"/></svg>4'000</span><span><svg><use href="#i-coin"/></svg>1'000</span></span>
+              </div>
+            </div>
+
+            <!-- Challenge -->
+            <div class="app-panel" id="dp-challenges" role="tabpanel" aria-labelledby="dt-challenges" hidden>
+              <div class="rc-grid">
+                <article class="rc">
+                  <div class="rc-img rc-img-saqa" aria-hidden="true"><b>АЛТЫН САҚА</b><span class="g">ПРОБНЫЙ ТЕСТ</span><span class="v">6 КЛАСС</span></div>
+                  <p class="rc-meta"><span>{{demo.grade}}</span><span class="rc-price">800 ₸</span></p>
+                  <p class="rc-t">{{demo.c1t}}</p>
+                  <p class="rc-sub">{{demo.d29}}</p>
+                  <p class="rc-sub"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>{{demo.part1}}</p>
+                  <div class="rc-foot"><span class="rc-st live">{{demo.live}}</span><span class="rc-btn">{{demo.start}}</span></div>
+                </article>
+                <article class="rc">
+                  <div class="rc-img rc-img-book" aria-hidden="true"><svg><use href="#i-book"/></svg><em>Sherlock Holmes</em></div>
+                  <p class="rc-meta"><span>{{demo.grade}}</span><span class="rc-price">{{demo.free}}</span></p>
+                  <p class="rc-t">Return of Sherlock Holmes</p>
+                  <p class="rc-sub">{{demo.d3}}</p>
+                  <p class="rc-sub"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>{{demo.part2}}</p>
+                  <div class="rc-foot"><span class="rc-st">{{demo.done}}</span><span class="rc-btn rc-btn-ghost">{{demo.results}}</span></div>
+                </article>
+                <article class="rc">
+                  <div class="rc-img rc-img-diag" aria-hidden="true"><b>ДИАГНОСТИКАЛЫҚ<br>ТЕСТ</b><span class="p">5 СЫНЫП</span></div>
+                  <p class="rc-meta"><span>{{demo.grade5}}</span></p>
+                  <p class="rc-t">{{demo.c3t}}</p>
+                  <p class="rc-sub">{{demo.d1}}</p>
+                  <p class="rc-sub"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>{{demo.part3}}</p>
+                  <div class="rc-foot"><span class="rc-st">{{demo.done}}</span><span class="rc-btn rc-btn-ghost">{{demo.results}}</span></div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Тренинг -->
+            <div class="app-panel" id="dp-training" role="tabpanel" aria-labelledby="dt-training" hidden>
+              <p class="ap-h">My Training</p>
+              <div class="tr-grid">
+                <article class="tr tr-blue">
+                  <div class="tr-img tr-img-saqa" aria-hidden="true"><b>АЛТЫН САҚА</b><span class="g">ДАЙЫНДЫҚ ТЕСТІ</span><small>мектепішілік кезең</small><i class="tr-inf">∞</i><span class="tr-go">on going</span></div>
+                  <p class="tr-grade">{{demo.grade}}</p>
+                  <p class="tr-t">{{demo.t1}}</p>
+                  <p class="tr-m">{{demo.t1m}}</p>
+                  <p class="tr-treasure"><svg aria-hidden="true"><use href="#i-chest"/></svg>{{demo.treasure}}</p>
+                  <span class="tr-btn">{{demo.continue}}</span>
+                </article>
+                <article class="tr tr-violet">
+                  <div class="tr-img tr-img-mega" aria-hidden="true"><b>МЕГА<br>ҚАЙТАЛАУ</b><small>МАТЕМАТИКА | 6-СЫНЫП</small><svg class="tr-coin"><use href="#i-coin"/></svg></div>
+                  <p class="tr-grade">{{demo.grade}}</p>
+                  <p class="tr-t">{{demo.t2}}</p>
+                  <p class="tr-m">{{demo.t2m}}</p>
+                  <p class="tr-treasure"><svg aria-hidden="true"><use href="#i-chest"/></svg>{{demo.treasure}}</p>
+                  <span class="tr-btn">{{demo.more2}}</span>
+                </article>
+              </div>
+            </div>
+
+            <!-- Shop -->
+            <div class="app-panel" id="dp-shop" role="tabpanel" aria-labelledby="dt-shop" hidden>
+              <div class="sh-top"><span class="sh-search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>{{demo.search}}</span><span class="sh-bal"><svg aria-hidden="true"><use href="#i-coin"/></svg><span data-count="350">350</span></span></div>
+              <p class="ap-h">{{demo.shopTitle}}</p>
+              <div class="sh-grid">
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="8" y="8" width="48" height="48" rx="8" fill="#1F2330"/><rect x="12" y="12" width="12" height="12" rx="2.5" fill="#EF4444"/><rect x="26" y="12" width="12" height="12" rx="2.5" fill="#fff"/><rect x="40" y="12" width="12" height="12" rx="2.5" fill="#2563EB"/><rect x="12" y="26" width="12" height="12" rx="2.5" fill="#22C55E"/><rect x="26" y="26" width="12" height="12" rx="2.5" fill="#F4CD4B"/><rect x="40" y="26" width="12" height="12" rx="2.5" fill="#F97316"/><rect x="12" y="40" width="12" height="12" rx="2.5" fill="#2563EB"/><rect x="26" y="40" width="12" height="12" rx="2.5" fill="#EF4444"/><rect x="40" y="40" width="12" height="12" rx="2.5" fill="#22C55E"/></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>4200</span><span class="sh-name">Кубик Рубика 3×3 Edu</span><span class="sh-rate">★ 4.2</span></div>
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="rotate(-18 32 32)"><rect x="13" y="12" width="7" height="40" rx="3" fill="#EF4444"/><rect x="13" y="12" width="7" height="10" rx="3" fill="#991B1B"/><rect x="22" y="12" width="7" height="40" rx="3" fill="#F4CD4B"/><rect x="22" y="12" width="7" height="10" rx="3" fill="#A16207"/><rect x="31" y="12" width="7" height="40" rx="3" fill="#22C55E"/><rect x="31" y="12" width="7" height="10" rx="3" fill="#166534"/><rect x="40" y="12" width="7" height="40" rx="3" fill="#2563EB"/><rect x="40" y="12" width="7" height="10" rx="3" fill="#1E3A8A"/><rect x="49" y="12" width="7" height="40" rx="3" fill="#A855F7"/><rect x="49" y="12" width="7" height="10" rx="3" fill="#6B21A8"/></g></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>3100</span><span class="sh-name">{{demo.p2}}</span><span class="sh-rate">★ 4.2</span></div>
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="rotate(-24 32 32)"><rect x="5" y="25" width="54" height="12" rx="6" fill="#111827"/><rect x="8" y="27" width="48" height="8" rx="4" fill="#374151"/><circle cx="15" cy="41" r="3.6" fill="#F4CD4B"/><circle cx="49" cy="41" r="3.6" fill="#F4CD4B"/></g></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>9800</span><span class="sh-name">Скейтборд</span><span class="sh-rate">★ 4.2</span></div>
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><g transform="rotate(32 32 32)"><rect x="30" y="2" width="4" height="34" rx="2" fill="#78350F"/><rect x="28.5" y="2" width="7" height="6" rx="2" fill="#92400E"/><path d="M32 30c-9 0-14 8-14 15s6 14 14 14 14-7 14-14-5-15-14-15z" fill="#B45309"/><path d="M32 33c-6 0-10 6-10 12" fill="none" stroke="#F59E0B" stroke-width="1.4" opacity=".6"/><circle cx="32" cy="47" r="3" fill="#78350F"/><path d="M31 6v42M33 6v42" stroke="#FDE68A" stroke-width=".6"/></g></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>12900</span><span class="sh-name">{{demo.p4}}</span><span class="sh-rate">★ 4.2</span></div>
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M8 41l6-12c1-2 3-3 5-3h22c2 0 4 1 5 3l9 12v6H8z" fill="#16A34A"/><path d="M21 28h18l4 8H19z" fill="#BBF7D0" opacity=".85"/><circle cx="19" cy="47" r="6" fill="#111827"/><circle cx="46" cy="47" r="6" fill="#111827"/><circle cx="19" cy="47" r="2.4" fill="#9CA3AF"/><circle cx="46" cy="47" r="2.4" fill="#9CA3AF"/><rect x="40" y="14" width="2" height="12" rx="1" fill="#111827"/></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>11800</span><span class="sh-name">{{demo.p6}}</span><span class="sh-rate">★ 4.2</span></div>
+                <div class="sh-item"><span class="sh-pic" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="18" y="8" width="28" height="48" rx="7" fill="#1E3A8A"/><rect x="21" y="11" width="22" height="42" rx="5" fill="#2546A8"/><path d="M34 19l-8 14h6l-2 11 9-15h-6z" fill="#F4CD4B"/><rect x="28" y="51" width="8" height="2" rx="1" fill="#93C5FD"/></svg><i class="sh-heart"></i><i class="sh-add">+</i></span><span class="sh-price"><svg aria-hidden="true"><use href="#i-coin"/></svg>15500</span><span class="sh-name">{{demo.p5}}</span><span class="sh-rate">★ 4.2</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-cta reveal"><a class="btn btn-gold btn-lg" href="https://eduapp.example.com/register">{{pf.cta}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section class="section" id="reviews" aria-labelledby="rv-h">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <p class="kicker">{{rv.kicker}}</p>
+        <h2 id="rv-h">{{rv.h2}}</h2>
+      </header>
+      <div class="rv-grid">
+        <div class="rv-hero fx-galaxy fx-glow reveal" data-tilt="6">
+          <p class="rv-big" data-depth="30"><span data-count="170">170</span></p>
+          <p class="rv-big-l" data-depth="16">{{rv.big}}</p>
+          <div class="rv-mini" data-depth="10">
+            <p><b>12000+</b><span>{{rv.mini1}}</span></p>
+            <p><b>30+</b><span>{{rv.mini2}}</span></p>
+          </div>
+        </div>
+        <ul class="rv-list">
+          <li class="rv-card reveal fx-light" data-spot>
+            <svg class="i rv-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <p class="rv-hl"><mark>{{rv.1.hl}}</mark></p>
+            <blockquote class="rv-text">{{rv.1.text}}</blockquote>
+            <div class="rv-author"><span class="rv-ava"><img src="{{base}}lp/rv-1.svg" alt="" width="52" height="52" loading="lazy"><svg class="rv-badge" aria-hidden="true"><use href="#i-whatsapp"/></svg></span><p><b>Нұрсұлтан Қайратұлы</b><span>{{rv.1.who}}</span></p></div>
+          </li>
+          <li class="rv-card reveal fx-light" data-spot style="--d:.06s">
+            <svg class="i rv-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <p class="rv-hl"><mark>{{rv.2.hl}}</mark></p>
+            <blockquote class="rv-text">{{rv.2.text}}</blockquote>
+            <div class="rv-author"><span class="rv-ava"><img src="{{base}}lp/rv-2.svg" alt="" width="52" height="52" loading="lazy"><img class="rv-badge" src="{{base}}lp/instagram.svg" alt="" width="20" height="20"></span><p><b>Дана Әбілқызы</b><span>{{rv.2.who}}</span></p></div>
+          </li>
+          <li class="rv-card reveal fx-light" data-spot style="--d:.12s">
+            <svg class="i rv-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <p class="rv-hl"><mark>{{rv.3.hl}}</mark></p>
+            <blockquote class="rv-text">{{rv.3.text}}</blockquote>
+            <div class="rv-author"><span class="rv-ava"><img src="{{base}}lp/rv-3.svg" alt="" width="52" height="52" loading="lazy"><svg class="rv-badge" aria-hidden="true"><use href="#i-telegram"/></svg></span><p><b>Айгерім Нұрланқызы</b><span>{{rv.3.who}}</span></p></div>
+          </li>
+          <li class="rv-card reveal fx-light" data-spot style="--d:.18s">
+            <svg class="i rv-q" aria-hidden="true"><use href="#i-quote"/></svg>
+            <p class="rv-hl"><mark>{{rv.4.hl}}</mark></p>
+            <blockquote class="rv-text">{{rv.4.text}}</blockquote>
+            <div class="rv-author"><span class="rv-ava"><img src="{{base}}lp/rv-4.svg" alt="" width="52" height="52" loading="lazy"><svg class="rv-badge" aria-hidden="true"><use href="#i-whatsapp"/></svg></span><p><b>Арман Төлеуов</b><span>{{rv.4.who}}</span></p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section-tint" id="faq" aria-labelledby="faq-h">
+    <div class="wrap wrap-narrow">
+      <header class="sec-head reveal">
+        <p class="kicker">FAQ</p>
+        <h2 id="faq-h">{{faq.h2}}</h2>
+      </header>
+      <div class="faq">
+        <details class="reveal"><summary>{{faq.1.q}}<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>{{faq.1.a}}</p></details>
+        <details class="reveal"><summary>{{faq.2.q}}<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>{{faq.2.a}}</p></details>
+        <details class="reveal"><summary>{{faq.3.q}}<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>{{faq.3.a}}</p></details>
+        <details class="reveal"><summary>{{faq.4.q}}<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>{{faq.4.a}}</p></details>
+        <details class="reveal"><summary>{{faq.5.q}}<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>{{faq.5.a}}</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="panel-dark fx-galaxy cta-band" aria-labelledby="cta-h">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap cta-in reveal">
+      <h2 id="cta-h">{{cta.h2}}</h2>
+      <p>{{cta.lead}}</p>
+      <div class="cta-actions">
+        <a class="btn btn-gold btn-lg" href="https://eduapp.example.com/register" data-trial>{{cta.main}}<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-glass btn-lg" href="https://wa.me/77000000000" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg>{{cta.wa}}</a>
+      </div>
+    </div>
+    <img class="cta-coin c1" src="{{base}}lp/obj-coin.svg" alt="" width="384" height="384" loading="lazy">
+    <img class="cta-coin c2" src="{{base}}lp/obj-coin.svg" alt="" width="384" height="384" loading="lazy">
+    <img class="cta-coin c3" src="{{base}}lp/obj-chest.webp" alt="" width="384" height="262" loading="lazy">
+  </section>
+</main>
+
+{{>footer}}
+
+{{>tail}}
+</body>
+</html>

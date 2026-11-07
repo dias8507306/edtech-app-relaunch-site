@@ -1,0 +1,99 @@
+/* ==========================================================================
+   EduApp FX — «живой» галактический фон, 3D-наклон, spotlight, свечение.
+   Без зависимостей. Подключение: fx.css + fx.js, дальше только классы/атрибуты:
+     .fx-galaxy            — тёмная панель с mesh-градиентом, звёздами и туманностью
+     [data-tilt="8"]       — 3D-наклон к курсору (число = максимальный угол)
+     [data-depth="30"]     — дочерний элемент «выезжает» на N px при наклоне (параллакс)
+     [data-spot]           — только подсветка за курсором, без наклона
+     canvas[data-starfield]— мерцающее звёздное небо с параллаксом (для hero)
+   Всё отключается при prefers-reduced-motion. Без filter:blur — дёшево для GPU.
+   ========================================================================== */
+
+:root{
+  --fx-violet:#6E4FD8;
+  --fx-violet-deep:#2E0F4C;
+  --fx-blue:#2857FC;
+  --fx-gold:#F4CD4B;
+  --fx-ink:#0D1119;
+  --fx-ease:cubic-bezier(.2,.7,.2,1);
+  --fx-spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ---------- Galaxy panel ---------- */
+.fx-galaxy{
+  position:relative;isolation:isolate;overflow:hidden;color:#fff;
+  background-color:var(--fx-ink);
+  background-image:
+    radial-gradient(60% 80% at 0% 0%,rgba(110,79,216,.55) 0%,transparent 60%),
+    radial-gradient(55% 70% at 100% 100%,rgba(40,87,252,.38) 0%,transparent 62%),
+    radial-gradient(40% 45% at 85% 8%,rgba(244,205,75,.10) 0%,transparent 60%),
+    linear-gradient(160deg,#1A0B33 0%,#0D1119 58%,#0B1330 100%);
+}
+/* Звёзды: два тайла разного размера, чтобы рисунок не повторялся заметно.
+   Слой статичный и размером с панель: раньше он был на 80% больше панели и бесконечно двигался —
+   на 9 панелях сразу это перегружало видеокарту, и прокрутка «застревала». */
+.fx-galaxy::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(1.3px 1.3px at 12% 18%,#fff 55%,transparent 60%),
+    radial-gradient(1px 1px at 32% 72%,rgba(255,255,255,.85) 55%,transparent 60%),
+    radial-gradient(1.5px 1.5px at 58% 38%,#fff 55%,transparent 60%),
+    radial-gradient(1px 1px at 76% 84%,rgba(255,255,255,.75) 55%,transparent 60%),
+    radial-gradient(1.6px 1.6px at 88% 22%,#FDE68A 55%,transparent 60%),
+    radial-gradient(1px 1px at 44% 8%,rgba(255,255,255,.7) 55%,transparent 60%),
+    radial-gradient(1.2px 1.2px at 6% 58%,#C4B5FD 55%,transparent 60%),
+    radial-gradient(1px 1px at 22% 44%,rgba(255,255,255,.6) 55%,transparent 60%),
+    radial-gradient(1.4px 1.4px at 66% 92%,#BFDBFE 55%,transparent 60%),
+    radial-gradient(1px 1px at 94% 62%,rgba(255,255,255,.7) 55%,transparent 60%);
+  background-size:260px 260px,260px 260px,260px 260px,260px 260px,260px 260px,
+                  190px 190px,190px 190px,190px 190px,190px 190px,190px 190px;
+  opacity:.8;
+}
+/* Туманность: мягкое статичное пятно */
+.fx-galaxy::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  width:70%;aspect-ratio:1;left:22%;top:-12%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(139,108,240,.32),rgba(139,108,240,0));
+}
+.fx-galaxy>*{position:relative}
+
+/* ---------- 3D tilt + spotlight ---------- */
+[data-tilt]{
+  position:relative;transform-style:preserve-3d;
+  transition:transform .6s var(--fx-ease),box-shadow .4s var(--fx-ease),border-color .3s;
+}
+/* will-change только во время наклона: постоянные слои на каждой карточке съедали память видеокарты */
+[data-tilt].fx-active{will-change:transform;transition:transform .12s linear,box-shadow .4s var(--fx-ease),border-color .3s}
+[data-depth]{transform:translateZ(calc(var(--fx-depth,0) * 1px));transition:transform .6s var(--fx-ease)}
+[data-tilt].fx-active [data-depth]{transition:transform .12s linear}
+
+[data-spot]{position:relative}
+.fx-glare{
+  position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;
+  opacity:0;transition:opacity .35s ease;
+  background:radial-gradient(460px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.13),transparent 42%);
+}
+/* Светящаяся кромка, которая следует за курсором */
+.fx-glare::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(244,205,75,.85),rgba(139,108,240,.55) 35%,transparent 65%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.fx-light .fx-glare{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(110,79,216,.08),transparent 45%)}
+.fx-light .fx-glare::before{background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(110,79,216,.75),rgba(40,87,252,.35) 40%,transparent 65%)}
+.fx-hover .fx-glare{opacity:1}
+
+/* ---------- Soft glow ---------- */
+.fx-glow{box-shadow:0 0 0 1px rgba(183,164,255,.14),0 24px 60px -32px rgba(110,79,216,.85)}
+.fx-glow:hover,.fx-glow.fx-hover{box-shadow:0 0 0 1px rgba(244,205,75,.35),0 30px 80px -30px rgba(110,79,216,1),0 0 40px -10px rgba(244,205,75,.25)}
+
+/* ---------- Starfield canvas ---------- */
+canvas[data-starfield]{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* Блок за пределами экрана (класс ставит site.js): все его бесконечные анимации на паузе */
+.is-off *,.is-off *::before,.is-off *::after,.is-off::before,.is-off::after{animation-play-state:paused!important}
+
+@media (prefers-reduced-motion:reduce){
+  [data-tilt],[data-depth]{transition:none;transform:none!important}
+}
